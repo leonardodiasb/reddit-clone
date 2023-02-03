@@ -111,7 +111,7 @@ const SignUp:React.FC = () => {
       />
       {(error || userError) && (
         <Text textAlign='center' color='red' fontSize='10pt'>
-          {error || FIREBASE_ERRORS[userError.message as keyof typeof FIREBASE_ERRORS]}
+          {error || FIREBASE_ERRORS[userError?.message as keyof typeof FIREBASE_ERRORS]}
         </Text>
       )}
       <Button 
