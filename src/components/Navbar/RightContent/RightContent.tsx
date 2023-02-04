@@ -5,12 +5,13 @@ import { signOut, User } from "firebase/auth";
 import React from "react";
 import AuthButtons from "./AuthButtons";
 import Icons from "./Icons";
+import UserMenu from "./UserMenu";
 
-type Props = {
+type RightContentProps = {
   user?: User | null;
 };
 
-const RightContent: React.FC<Props> = ({ user }) => {
+const RightContent: React.FC<RightContentProps> = ({ user }) => {
   return (
     <>
       <AuthModal />
@@ -20,6 +21,7 @@ const RightContent: React.FC<Props> = ({ user }) => {
         ) : (
           <AuthButtons />
         )}
+        <UserMenu user={user}/>
       </Flex>
     </>
   );
