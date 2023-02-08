@@ -4,6 +4,7 @@ import { Menu, MenuButton, MenuList, Flex, Icon, Text } from "@chakra-ui/react";
 import { useSetRecoilState } from "recoil";
 import { authModalState } from "@/atoms/authModalAtom";
 import { TiHome } from "react-icons/ti";
+import Communities from "./Communities";
 
 const Directory:React.FC = () => {
   const setAuthModalState = useSetRecoilState(authModalState);
@@ -29,8 +30,7 @@ const Directory:React.FC = () => {
         </Flex>
       </MenuButton>
       <MenuList>
-        {/* <Communities /> */}
-        Communities
+        <Communities />
       </MenuList>
     </Menu>
   );
