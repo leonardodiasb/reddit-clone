@@ -87,13 +87,13 @@ const NewPostForm:React.FC<NewPostFormProps> = ({ user }) => {
         });
       }
       
+      router.back();
     } catch (error: any) {
       console.log("handleCreatePost error", error.message);
       setError(true);
     }
 
     setLoading(false);
-    router.back();
   };
    
   const onSelectImage = (event: React.ChangeEvent<HTMLInputElement>) => {
