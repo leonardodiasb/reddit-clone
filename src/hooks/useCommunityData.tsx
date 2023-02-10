@@ -39,7 +39,7 @@ const useCommunityData = () => {
         mySnippets: snippets as CommunitySnippet[]
       }));
     } catch (error: any) {
-      console.log("getMySnippets error", error);
+      console.log("getMySnippets error", error.message);
       setError(error.message);
     }
     setLoading(false);
@@ -75,7 +75,7 @@ const useCommunityData = () => {
       }));
 
     } catch (error: any) {
-      console.log("joinCommunity error", error);
+      console.log("joinCommunity error", error.message);
       setError(error.message);
     }
     setLoading(false);
@@ -101,7 +101,7 @@ const useCommunityData = () => {
       }));
       setLoading(false);
     } catch (error: any) {
-      console.log("leaveCommunity error", error);
+      console.log("leaveCommunity error", error.message);
       setError(error.message);
     }
   };

@@ -64,7 +64,7 @@ const CreateCommunityModal:React.FC<CreateCommunityModalProps> = ({ open, handle
         });
       });
     } catch (error: any) {
-      console.log("handleCreateCommunity error", error);
+      console.log("handleCreateCommunity error", error.message);
       setError(error.message);
     }
 

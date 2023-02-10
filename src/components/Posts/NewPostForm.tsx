@@ -88,7 +88,7 @@ const NewPostForm:React.FC<NewPostFormProps> = ({ user }) => {
       }
       
     } catch (error: any) {
-      console.log("handleCreatePost error", error);
+      console.log("handleCreatePost error", error.message);
       setError(true);
     }
 
