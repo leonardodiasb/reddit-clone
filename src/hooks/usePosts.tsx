@@ -7,10 +7,12 @@ import { collection, deleteDoc, doc, getDocs, query, where, writeBatch } from "f
 import { useAuthState } from "react-firebase-hooks/auth";
 import { communityState } from "@/atoms/communitiesAtom";
 import { authModalState } from "@/atoms/authModalAtom";
+import { useRouter } from "next/router";
 
 const usePosts = () => {
   const [postStateValue, setPostStateValue] = useRecoilState(postState);
   const [user] = useAuthState(auth);
+  const router = useRouter();
   const currentCommunity = useRecoilValue(communityState).currentCommunity;
   const setAuthModalState = useSetRecoilState(authModalState);
 
@@ -99,7 +101,13 @@ const usePosts = () => {
 
   };
 
-  const onSelectPost = () => {};
+  const onSelectPost = (post: PostType) => {
+    setPostStateValue(prev => ({
+      ...prev,
+      selectedPost: post,
+    }));
+    router.push(`/r/${post.communityId}/comments/${post.id}`);
+  };
 
   const onDeletePost = async (post: PostType): Promise<boolean> => {
     try {
