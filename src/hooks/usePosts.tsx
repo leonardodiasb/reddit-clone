@@ -16,7 +16,13 @@ const usePosts = () => {
   const currentCommunity = useRecoilValue(communityState).currentCommunity;
   const setAuthModalState = useSetRecoilState(authModalState);
 
-  const onVote = async (post: PostType, vote: number, communityId: string) => {
+  const onVote = async (
+    event: React.MouseEvent<SVGElement, MouseEvent>,
+    post: PostType,
+    vote: number,
+    communityId: string
+  ) => {
+    event.stopPropagation();
 
     if (!user?.uid) {
       setAuthModalState({ open: true, view: "login" });
@@ -90,6 +96,13 @@ const usePosts = () => {
         posts: updatedPosts,
         postVotes: updatedPostVotes
       }));
+
+      if (postStateValue.selectedPost) {
+        setPostStateValue(prev => ({
+          ...prev,
+          selectedPost: updatedPost
+        }));
+      }
 
       const postRef = doc(firestore, "posts", post.id!);
       batch.update(postRef, { voteStatus: voteStatus + voteChange });
