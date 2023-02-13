@@ -43,8 +43,6 @@ const useDirectory = () => {
         }
       }));
     }
-    console.log(directoryState);
-
   }, [communityStateValue.currentCommunity]);
 
   return {
