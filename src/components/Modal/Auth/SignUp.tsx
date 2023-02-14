@@ -16,6 +16,7 @@ const SignUp:React.FC = () => {
   const [error, setError] = useState("");
   const [
     createUserWithEmailAndPassword,
+    _,
     loading,
     userError,
   ] = useCreateUserWithEmailAndPassword(auth);
