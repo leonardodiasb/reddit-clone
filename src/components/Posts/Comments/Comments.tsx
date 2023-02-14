@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
 import { postState, PostType } from "@/atoms/postsAtom";
 import { firestore } from "@/firebase/clientApp";
 import { Box, Flex, SkeletonCircle, SkeletonText, Stack, Text } from "@chakra-ui/react";
@@ -78,7 +79,7 @@ const Comments:React.FC<CommentsProps> = ({
       const commentDocRef = doc(firestore, "comments", comment.id);
       batch.delete(commentDocRef);
 
-      const postDocRef = doc(firestore, "posts", selectedPost?.id);
+      const postDocRef = doc(firestore, "posts", selectedPost?.id!);
       batch.update((postDocRef), {
         numberOfComments: increment(-1)
       });

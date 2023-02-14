@@ -5,11 +5,7 @@ import { useRecoilValue } from "recoil";
 import Login from "./Login";
 import SignUp from "./SignUp";
 
-type Props = {
-
-};
-
-const AuthInputs:React.FC<Props> = () => {
+const AuthInputs:React.FC = () => {
   const modalState = useRecoilValue(authModalState);
 
   return (

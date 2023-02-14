@@ -9,7 +9,7 @@ import RightContent from "./RightContent/RightContent";
 import SearchInput from "./SearchInput";
 
 const Navbar:React.FC = () => {
-  const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
   const { onSelectMenuItem } = useDirectory();
 
   return(
